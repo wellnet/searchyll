@@ -154,8 +154,6 @@ module Searchyll
         create_index.mappings = mapping_fields
       end
 
-      pp create_index
-
       http_start do |http|
         http.request(create_index)
       end
