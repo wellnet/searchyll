@@ -35,7 +35,7 @@ begin
 
     if (indexer = indexers[page.site])
       indexer << page.data.merge({
-        id:     defined?(page.title) ? page.title : nil
+        id:     page.title,
         url:    page.url,
         text:   nokogiri_doc.xpath("//article//text()").to_s.gsub(/\s+/, " ")
       })
