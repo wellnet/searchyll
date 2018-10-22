@@ -4,7 +4,7 @@ require 'net/http'
 module Searchyll
   class Indexer
     # Mapping fields JSON file path
-    MAPPING_FILE_PATHS = './mapping/fields.json'
+    MAPPING_FILE_PATH = './mapping/fields.json'
     # Initial size of document batches to send to ES _bulk API
     BATCH_SIZE = 50
 
