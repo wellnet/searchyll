@@ -1,4 +1,3 @@
-require 'pp'
 require "searchyll/version"
 require "jekyll/hooks"
 require "jekyll/plugin"
@@ -29,7 +28,6 @@ begin
 
   # gets random pages like your home page
   Jekyll::Hooks.register :pages, :post_render do |page|
-    pp page
     # strip html
     nokogiri_doc = Nokogiri::HTML(page.output)
 
@@ -37,7 +35,7 @@ begin
 
     if (indexer = indexers[page.site])
       indexer << page.data.merge({
-        id:     page.title,
+        id:     defined?(page.title) ? page.title : nil
         url:    page.url,
         text:   nokogiri_doc.xpath("//article//text()").to_s.gsub(/\s+/, " ")
       })
