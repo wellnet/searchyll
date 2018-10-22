@@ -1,6 +1,5 @@
 require 'json'
 require 'net/http'
-require 'pp'
 
 module Searchyll
   class Indexer
