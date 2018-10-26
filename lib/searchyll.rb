@@ -31,7 +31,7 @@ begin
     # strip html
     nokogiri_doc = Nokogiri::HTML(page.output)
 
-    puts %(        indexing page #{page.url})
+    # puts %(        indexing page #{page.url})
 
     if (indexer = indexers[page.site])
       indexer << page.data.merge({
