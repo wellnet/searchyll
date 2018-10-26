@@ -31,11 +31,11 @@ begin
     # strip html
     nokogiri_doc = Nokogiri::HTML(page.output)
 
-    # puts %(        indexing page #{page.url})
+    puts %(        indexing page #{page.url})
 
     if (indexer = indexers[page.site])
       indexer << page.data.merge({
-        id:     page.name,
+        id:     defined? page.title ? page.title : page.name,
         url:    page.url,
         text:   nokogiri_doc.xpath("//article//text()").to_s.gsub(/\s+/, " ")
       })
